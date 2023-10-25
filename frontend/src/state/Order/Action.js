@@ -1,4 +1,4 @@
-import axios from "axios";
+import api from "../../config/apiconfig";
 import {
   CREATE_ORDER_FAILURE,
   CREATE_ORDER_REQUEST,
@@ -7,7 +7,7 @@ import {
   GET_ORDER_BY_ID_REQUEST, 
   GET_ORDER_BY_ID_SUCCESS,
 } from "./ActionType";
-import api from "../../config/apiconfig";
+// import api from "../../config/apiconfig";
 
 
 export const createOrder = (reqData) => async (dispatch) => {

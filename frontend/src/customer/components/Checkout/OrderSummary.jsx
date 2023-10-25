@@ -5,6 +5,7 @@ import CartItem from '../Cart/CartItem'
 import { useDispatch, useSelector } from 'react-redux'
 import { getOrderById } from '../../../state/Order/Action'
 import { useLocation } from 'react-router-dom'
+import { createPayment } from '../../../state/Payment/Action'
 
 const OrderSummary = () => {
    const dispatch=useDispatch()
@@ -17,6 +18,13 @@ useEffect(()=>
 {
 dispatch(getOrderById(orderId))
 },[orderId])
+
+const handleCheckout=()=>
+{
+   dispatch(createPayment(orderId))
+}
+
+
 
   return (
     <div>
@@ -35,12 +43,12 @@ dispatch(getOrderById(orderId))
             <div className='space-y-3 font-semibold mb-10'>
              <div className='flex justify-between pt-3 text-black'>
                 <span>Price</span>
-                <span>{order.order?.totalPrice}</span>
+                <span>₹{order.order?.totalPrice}</span>
 
              </div>
              <div className='flex justify-between pt-3'>
                 <span>Discount</span>
-                <span className='text-green-600'>{order.order?.discounte}</span>
+                <span className='text-green-600'>₹{order.order?.discounte}</span>
 
              </div>
              <div className='flex justify-between pt-3 '>
@@ -56,7 +64,8 @@ dispatch(getOrderById(orderId))
 
             </div>
 
-            <Button variant="contained" className='w-full '  sx={{px:"2.5rem",py:".7rem",bgcolor:"#9155fd"}}>
+            <Button variant="contained" className='w-full '  sx={{px:"2.5rem",py:".7rem",bgcolor:"#9155fd"}}
+             onclick={handleCheckout}>
               Check Out
             </Button>
          </div>

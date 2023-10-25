@@ -106,7 +106,7 @@ useEffect(() => {
     minDiscount: disccount || 0,
     sort: sortValue || "price_low",
     pageNumber: pageNumber ,
-    pageSize: 1,
+    pageSize: 10,
     stock: stock
   };
   dispatch(findProducts(data));

@@ -77,13 +77,13 @@ async function addCartItem(userId, req) {
         size: req.size,
         discountedPrice: product.discountedPrice,
       });
-
+       
       const createdCartItem = await cartItem.save();
       cart.cartItems.push(createdCartItem);
       await cart.save();
       return createdCartItem;
     } else {
-      return 'Item is already in the cart';
+      return {message:'Item is already in the cart',isPresent};
     }
   } catch (error) {
     throw new Error(error.message);

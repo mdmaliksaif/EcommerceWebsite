@@ -44,7 +44,8 @@ app.use("/api/reviews",ReviewRoutes)
 const RatingRoutes=require("./routes/ratingRoutes")
 app.use("/api/ratings",RatingRoutes)
 
-   
+const paymentRoutes=require('./routes/paymentRoutes')
+app.use("/api/payments",paymentRoutes) 
 
 
 
